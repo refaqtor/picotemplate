@@ -17,3 +17,6 @@ If this errors try resaving the `csource/CMakeLists` file.
 Finally with that image running you can `nimble listen` which should listen to the pico on the usb uart, printing the message in the `pico_nim.nim` file.
 
 Now you can write any code you want using the `picostdlib`.
+
+### Licenses
+The Cmake files are licensed under [BSD 3-Clause](https://github.com/raspberrypi/pico-sdk/blob/master/LICENSE.TXT)
