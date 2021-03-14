@@ -1,9 +1,9 @@
 # Raspberry Pi Pico template project
-## Dependancies:
+## Dependencies:
 
-All Nim dependancies can be fetched(after nimble is installed) with, `nimble install --depsOnly`.
+All Nim dependencies can be fetched(after nimble is installed) with, `nimble install --depsOnly`.
 
-Since we're using the C project all of the [dependancies](https://github.com/raspberrypi/pico-sdk#quick-start-your-own-project) apply from the pico-sdk, so fetch all those aswell.
+Since we're using the C project all of the [dependencies](https://github.com/raspberrypi/pico-sdk#quick-start-your-own-project) apply from the pico-sdk, so fetch all those aswell.
 
 
 ## How To Use
