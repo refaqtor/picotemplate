@@ -15,3 +15,4 @@ task listen, "Listens to the usb debug":
 # Dependencies
 
 requires "nim >= 1.4.2"
+requires "https://github.com/beef331/picostdlib"
