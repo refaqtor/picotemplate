@@ -1,0 +1,5 @@
+csource/build/*
+!csource/build/uselessfile
+csource/*.c
+csource/*.json
+csource/*.h
