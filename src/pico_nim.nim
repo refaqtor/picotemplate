@@ -1,5 +1,4 @@
 import picostdlib
-import picostdlib/[sevensegdisplay, time, adc, gpio]
 
 stdioInitAll()
 while true:
