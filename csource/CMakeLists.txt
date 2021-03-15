@@ -16,7 +16,8 @@ FILE(GLOB MyCSources *.c)
 ADD_EXECUTABLE(pico_nim ${MyCSources})
 
 # Pull in our pico_stdlib which aggregates commonly used features
-target_link_libraries(pico_nim pico_stdlib hardware_adc)
+# hardware_adc tinyusb_device tinyusb_board Currently supported.
+target_link_libraries(pico_nim pico_stdlib  hardware_clocks)
 
 # enable usb output, disable uart output
 pico_enable_stdio_usb(pico_nim 1)

@@ -11,7 +11,7 @@ proc setupPins =
   for x in SevenSeg:
     SevenSegPins[x] = i.Gpio
     inc i
-  let 
+  let
     gPin = SevenSegPins[f]
   SevenSegPins[f] = SevenSegPins[g]
   SevenSegPins[g] = gPin
@@ -23,7 +23,7 @@ adcInit()
 26.Gpio.initAdc()
 Adc26.selectInput
 
-var 
+var
   averageDat: array[30, float32]
   pos = 0
 
