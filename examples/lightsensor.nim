@@ -1,5 +1,5 @@
 import picostdlib
-import picostdlib/[sevensegdisplay, time, adc, gpio]
+import picostdlib/[sevensegdisplay, adc, gpio]
 
 # This module reads the voltage on pin 26 using ADC and outputs the value between 3.15 - 3.3 in hex(0-F) on the
 # seven segmented display.
@@ -20,21 +20,12 @@ stdioInitAll()
 setupPins()
 initPins()
 adcInit()
-26.Gpio.initAdc()
+let adcPin = 26.Gpio
+adcPin.init()
 Adc26.selectInput
 
-var
-  averageDat: array[30, float32]
-  pos = 0
-
 while true:
-  let input = (adcRead().float32 * ThreePointThreeConv)
-  averageDat[pos] = input
-  pos = (pos + 1).mod(averageDat.len)
-  let average = block:
-    var res = 0f
-    for x in averageDat:
-      res += x
-    res / averageDat.len.float32
-  let toDraw = (((average - 3.15f) / 0.15f) * 16f).clamp(0, 16).CharacterName
+  let input = (adcRead().float * ThreePointThreeConv)
+  print($input & "\n")
+  let toDraw = ((input / 3.3f) * 16f).clamp(0, 16).CharacterName
   toDraw.draw
