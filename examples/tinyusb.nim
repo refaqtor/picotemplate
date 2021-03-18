@@ -1,5 +1,5 @@
 import picostdlib/[tusb]
-{.error: "This module isnt currently functional.".}
+import encode
 type BlinkAmount = enum
   notMounted = 250u32
   mounted = 1000
@@ -42,6 +42,12 @@ suspendCallback(wakeUpEnabled):
 
 resumeCallback:
   state = mounted
+
+const stringDesc = (($0x09) & ($0x04) & "TinyUSB" & "TinyUSB Device" & "123456")
+
+deviceDescriptorStringCallback(index, langId):
+  let res = stringDesc.toUtf16LE().cstring
+  cast[ptr uint16](res[0].unsafeAddr)
 
 proc blink() =
   var
