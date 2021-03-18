@@ -5,8 +5,11 @@ author        = "Jason"
 description   = "A new awesome nimble package"
 license       = "MIT"
 srcDir        = "src"
-
+import strutils
 task make, "Creates the C sources":
+  for file in listFiles("csource"):
+    if file.endsWith(".c"):
+      rmFile(file)
   exec("nim c -c --nimcache:csource --gc:arc --cpu:arm --os:any -d:release -d:useMalloc ./src/pico_nim.nim")
   mvFile("./csource/" & "@mpico_nim.nim.c", "./csource/" & "pico_nim.c")
   mvFile("./csource/CMakeLists.txt", "./csource/CMakeLists.txt1")
